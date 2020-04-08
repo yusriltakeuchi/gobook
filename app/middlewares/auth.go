@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/yusriltakeuchi/gobook/db"
-	"github.com/yusriltakeuchi/gobook/models"
-	"github.com/yusriltakeuchi/gobook/response"
+	"github.com/yusriltakeuchi/gobook/app/database"
+	"github.com/yusriltakeuchi/gobook/app/models"
+	"github.com/yusriltakeuchi/gobook/app/response"
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/dgrijalva/jwt-go"
@@ -41,7 +41,7 @@ func AuthHandler() gin.HandlerFunc {
 		}
 
 		//Validate user is found in database
-		DB := db.GetDB()
+		DB := database.GetDB()
 		var user models.User
 
 		//Get username

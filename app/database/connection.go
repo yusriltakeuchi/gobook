@@ -1,11 +1,10 @@
-package db
+package database
 
 import (
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/yusriltakeuchi/gobook/models"
 )
 
 var db *gorm.DB
@@ -23,10 +22,6 @@ func Init() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	//Migrations database
-	db.AutoMigrate(&models.Books{})
-	db.AutoMigrate(&models.User{})
 }
 
 //GetDB ...

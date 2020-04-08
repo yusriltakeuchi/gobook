@@ -3,16 +3,16 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/ulule/deepcopier"
-	"github.com/yusriltakeuchi/gobook/db"
-	"github.com/yusriltakeuchi/gobook/middlewares"
-	"github.com/yusriltakeuchi/gobook/models"
-	"github.com/yusriltakeuchi/gobook/response"
+	"github.com/yusriltakeuchi/gobook/app/database"
+	"github.com/yusriltakeuchi/gobook/app/middlewares"
+	"github.com/yusriltakeuchi/gobook/app/models"
+	"github.com/yusriltakeuchi/gobook/app/response"
 	"github.com/yusriltakeuchi/gobook/validator"
 )
 
 //Function to login and get access token
 func Login(c *gin.Context) {
-	//Data mapping & validations
+	//Data mapping & validatio
 	var req models.LoginValidate
 	err := validator.Validate(c, &req)
 	if err != nil {
@@ -22,7 +22,7 @@ func Login(c *gin.Context) {
 
 	//model to map from query result
 	var user models.User
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Binding user request json
 	c.BindJSON(&req)
@@ -64,7 +64,7 @@ func Register(c *gin.Context) {
 
 	//model to map from query result
 	var user models.User
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Binding user request json
 	c.BindJSON(&req)
@@ -95,7 +95,7 @@ func Register(c *gin.Context) {
 func Logout(c *gin.Context) {
 	//Get username from tokens
 	username := middlewares.GetUsername()
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	var user models.User
 

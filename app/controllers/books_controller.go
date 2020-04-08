@@ -3,10 +3,10 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/ulule/deepcopier"
+	"github.com/yusriltakeuchi/gobook/app/database"
+	"github.com/yusriltakeuchi/gobook/app/models"
+	"github.com/yusriltakeuchi/gobook/app/response"
 	"github.com/yusriltakeuchi/gobook/config"
-	"github.com/yusriltakeuchi/gobook/db"
-	"github.com/yusriltakeuchi/gobook/models"
-	"github.com/yusriltakeuchi/gobook/response"
 	"github.com/yusriltakeuchi/gobook/validator"
 )
 
@@ -21,7 +21,7 @@ func CreateBook(c *gin.Context) {
 	}
 
 	var book models.Books
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Binding user request json
 	c.BindJSON(&req)
@@ -47,7 +47,7 @@ func DeleteBook(c *gin.Context) {
 	id := c.Params.ByName("id")
 
 	var book models.Books
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Find book with id
 	err := DB.Where("id = ?", id).Find(&book).Error
@@ -76,7 +76,7 @@ func UpdateBook(c *gin.Context) {
 	}
 
 	var book models.Books
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Binding user request json
 	c.BindJSON(&req)
@@ -98,7 +98,7 @@ func UpdateBook(c *gin.Context) {
 //Function to get all books
 func GetBooks(c *gin.Context) {
 	var books []models.Books
-	DB := db.GetDB()
+	DB := database.GetDB()
 
 	//Paginations the data
 	p := config.Page(c)
