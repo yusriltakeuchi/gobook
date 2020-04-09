@@ -19,17 +19,23 @@ func Start() {
 
 func InstallLibrary() {
 	for _, value := range config.GetPackages() {
-		cmd := exec.Command("go", "get", value)
+		//Check if library already installed
+		cmd := exec.Command("go", "list", value)
 		err := cmd.Run()
-		var message string
 
+		//If package not installed then install
 		if err != nil {
-			message = fmt.Sprintf(" -> Error Installing %s.\n%s", value, err.Error())
-			fmt.Println(message)
-			continue
+			cmd = exec.Command("go", "get", value)
+			err = cmd.Run()
+
+			if err != nil {
+				fmt.Println(fmt.Sprintf(" -> Error Installing %s.\n%s", value, err.Error()))
+				continue
+			}
+			fmt.Println(fmt.Sprintf(" -> Successfully Install %s.", value))
+		} else {
+			fmt.Println(fmt.Sprintf(" -> Library %s already installed.", value))
 		}
-		message = fmt.Sprintf(" -> Successfully Install %s.", value)
-		fmt.Println(message)
 	}
 	fmt.Println(" -> Required library successfully installed.")
 }

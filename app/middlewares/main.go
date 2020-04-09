@@ -2,9 +2,9 @@ package middlewares
 
 import "math/rand"
 
-const (
-	SigningKey = "abc123456789"
-)
+// const (
+// 	SigningKey = "abc123456789"
+// )
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 

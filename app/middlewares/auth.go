@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/yusriltakeuchi/gobook/config"
+
 	"github.com/yusriltakeuchi/gobook/app/database"
 	"github.com/yusriltakeuchi/gobook/app/models"
 	"github.com/yusriltakeuchi/gobook/app/response"
@@ -33,7 +35,7 @@ func AuthHandler() gin.HandlerFunc {
 			return
 		}
 		// Validate token
-		valid, err := ValidateToken(t[1], SigningKey)
+		valid, err := ValidateToken(t[1], config.LoadEnv("SIGNED_KEY"))
 		if err != nil {
 			response.InvalidToken(c)
 			c.Abort()

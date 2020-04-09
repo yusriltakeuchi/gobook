@@ -25,10 +25,34 @@ func GetPackages() []string {
 }
 ```
 
-## Install Required Library
 Use this command to install library requred in project
 ```go
 	go run main.go install
+```
+
+## How To Add New Model
+1. Create Model in **app/models**
+2. Open file** app/database/migrations.go**
+3. Insert your model here
+```go
+//Insert your model here
+func GetModel() [][]interface{} {
+	return [][]interface{}{
+		{&models.Books{}, "Books"},
+		{&models.User{}, "User"}}
+}
+```
+4. Migrate your database using command
+```go
+	go run main.go migrate
+```
+
+## Database Setup
+We use .env file to keep the configurations, just open the .env file and edit your database credentials here
+```go
+DB_USERNAME=root
+DB_PASSWORD=123456
+DB_NAME=gobook
 ```
 
 ## Commands

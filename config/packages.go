@@ -8,5 +8,6 @@ func GetPackages() []string {
 		"github.com/go-sql-driver/mysql",
 		"github.com/jinzhu/gorm",
 		"golang.org/x/crypto/bcrypt",
-		"github.com/dgrijalva/jwt-go"}
+		"github.com/dgrijalva/jwt-go",
+		"github.com/joho/godotenv"}
 }
