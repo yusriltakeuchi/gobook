@@ -10,6 +10,8 @@ Features:
 - [x] Support with MySQL
 - [x] Validator System
 - [x] Relation Has One
+- [x] Env Configurations
+- [x] Helper Command
 
 ## How To Add New Library
 Open file in **config/packages.go** and insert your library here
