@@ -40,6 +40,10 @@ func Login(c *gin.Context) {
 		return
 	}
 
+	//Generate new uniqueKey
+	user.UniqueKey = middlewares.RandomStr(10)
+	DB.Save(&user)
+
 	//Generate Access token
 	token, exp, err := middlewares.GenerateToken(user.Username, user.UniqueKey)
 	if err != nil {
