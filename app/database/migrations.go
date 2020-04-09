@@ -6,7 +6,9 @@ import (
 	"github.com/yusriltakeuchi/gobook/app/models"
 )
 
-//Insert your model here
+//Don't touch this code,
+//if you want to add manual, don't forget
+//do add "}} in the end statement
 func GetModel() [][]interface{} {
 	return [][]interface{}{
 		{&models.Books{}, "Books"},

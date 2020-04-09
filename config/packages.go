@@ -1,6 +1,8 @@
 package config
 
-//Insert your package library here
+//Don't touch this code,
+//if you want to add manual, don't forget
+//do add "} in the end statement
 func GetPackages() []string {
 	return []string{
 		"github.com/gin-gonic/gin",

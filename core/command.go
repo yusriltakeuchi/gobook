@@ -10,7 +10,9 @@ func ShowHelp() {
 	fmt.Println("----=====[ Gobook ]=====----")
 	fmt.Println(" -> go run main.go start - Start server with port 8080")
 	fmt.Println(" -> go run main.go migrate - Migrate database")
-	fmt.Println(" -> go run main.go install - Installing all required library")
+	fmt.Println(" -> go run main.go install <packagename> - Installing required library")
+	fmt.Println(" -> go run main.go make controller <name> - Create new controllers")
+	fmt.Println(" -> go run main.go make model <name> - Create new models")
 }
 
 func Command(cmd []string) {
@@ -26,7 +28,13 @@ func Command(cmd []string) {
 	case "migrate":
 		database.Migrate()
 	case "install":
+		if len(cmd) == 2 {
+			fmt.Println(fmt.Sprintf(" -> Inserting library %s.", cmd[1]))
+			AddingLibrary(cmd[1])
+		}
 		InstallLibrary()
+	case "make":
+		GenerateCode(cmd)
 	case "help":
 		ShowHelp()
 	}

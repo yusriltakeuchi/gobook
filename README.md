@@ -14,42 +14,29 @@ Features:
 - [x] Helper Command
 
 ## How To Add New Library
-Open file in **config/packages.go** and insert your library here
 ```go
-//Insert your package library here
-func GetPackages() []string {
-	return []string{
-		"github.com/gin-gonic/gin",
-		"github.com/ulule/deepcopier",
-		"github.com/go-sql-driver/mysql",
-		"github.com/jinzhu/gorm",
-		"golang.org/x/crypto/bcrypt",
-		"github.com/dgrijalva/jwt-go",
-		"github.com/joho/godotenv"}
-}
+go run main.go install <packagename>
 ```
 
-Use this command to install required library in project
+Example command 
 ```go
-	go run main.go install
+go run main.go install github.com/google/uuid
 ```
 
 ## How To Add New Model
-1. Create Model in **app/models**
-2. Open file **app/database/migrations.go**
-3. Insert your model here
+1. Use this following command to make a new model
 ```go
-//Insert your model here
-func GetModel() [][]interface{} {
-	return [][]interface{}{
-		{&models.Books{}, "Books"},
-		{&models.User{}, "User"},
-		{&models.Profile{}, "Profile"}}
-}
+go run main.go make model <name>
 ```
-4. Migrate your database using command
+2. Migrate your database using command
 ```go
 	go run main.go migrate
+```
+
+## How To Add New Controller
+1. Use this following command to make a new controller
+```go
+go run main.go make controller <name>
 ```
 
 ## Database Setup
@@ -73,7 +60,17 @@ Migrate Database
 
 Install Required Package
 ```go
-	go run main.go install
+	go run main.go install <packagename>
+```
+
+Make New Controller
+```go
+	go run main.go make controller <name>
+```
+
+Make New Model
+```go
+	go run main.go make model <name>
 ```
 
 Show Help
