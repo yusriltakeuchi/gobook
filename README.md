@@ -24,11 +24,12 @@ func GetPackages() []string {
 		"github.com/go-sql-driver/mysql",
 		"github.com/jinzhu/gorm",
 		"golang.org/x/crypto/bcrypt",
-		"github.com/dgrijalva/jwt-go"}
+		"github.com/dgrijalva/jwt-go",
+		"github.com/joho/godotenv"}
 }
 ```
 
-Use this command to install library requred in project
+Use this command to install required library in project
 ```go
 	go run main.go install
 ```
@@ -42,7 +43,8 @@ Use this command to install library requred in project
 func GetModel() [][]interface{} {
 	return [][]interface{}{
 		{&models.Books{}, "Books"},
-		{&models.User{}, "User"}}
+		{&models.User{}, "User"},
+		{&models.Profile{}, "Profile"}}
 }
 ```
 4. Migrate your database using command

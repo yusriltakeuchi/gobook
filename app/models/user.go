@@ -22,7 +22,7 @@ type RegisterValidate struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 	Email    string `json:"email" binding:"required"`
-	Name     string `json:"name"`
-	Phone    string `json:"phone"`
-	City     string `json:"city"`
+	Name     string `json:"name" binding:"required"`
+	Phone    string `json:"phone" binding:"required"`
+	City     string `json:"city" binding:"required"`
 }
