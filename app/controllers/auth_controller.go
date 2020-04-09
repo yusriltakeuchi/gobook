@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/ulule/deepcopier"
 	"github.com/yusriltakeuchi/gobook/app/database"
 	"github.com/yusriltakeuchi/gobook/app/middlewares"
 	"github.com/yusriltakeuchi/gobook/app/models"
@@ -63,20 +62,27 @@ func Register(c *gin.Context) {
 	}
 
 	//model to map from query result
-	var user models.User
 	DB := database.GetDB()
 
 	//Binding user request json
 	c.BindJSON(&req)
-	//Copy from request to user model
-	deepcopier.Copy(req).To(&user)
 
 	//Hashing password
-	password, _ := middlewares.HashPassword(user.Password)
-	user.Password = password
+	password, _ := middlewares.HashPassword(req.Password)
 
 	//Generate random string for token
-	user.UniqueKey = middlewares.RandomStr(10)
+	uniqueKey := middlewares.RandomStr(10)
+
+	//Data to save
+	user := models.User{
+		Username:  req.Username,
+		Password:  password,
+		Email:     req.Email,
+		UniqueKey: uniqueKey,
+		Profile: models.Profile{
+			Name:  req.Name,
+			Phone: req.Phone,
+			City:  req.City}}
 
 	//find existing user
 	err = DB.Where("username = ?", req.Username).Find(&user).Error

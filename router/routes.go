@@ -24,6 +24,9 @@ func SetupRouter() {
 
 		//Authentication for logout
 		v1.POST("/auth/logout", controllers.Logout)
+
+		//Get Profile
+		v1.GET("/user/profile", controllers.GetProfile)
 	}
 
 	//Running server in port 8080

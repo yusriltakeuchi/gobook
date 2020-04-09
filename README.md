@@ -3,12 +3,13 @@ Gobook is a golang boilerplate with web framework Gin & Gorm ORM.
 
 Features:
 - [x] MVC Pattern
-- [x] Login, Register & Logout System
+- [x] Login, Register, Logout & Profile System
 - [x] Middleware System with JWT and UniqueKey
 - [x] Paginations Request
 - [x] Example Books CRUD
 - [x] Support with MySQL
 - [x] Validator System
+- [x] Relation Has One
 
 ## How To Add New Library
 Open file in **config/packages.go** and insert your library here

@@ -9,7 +9,7 @@ import (
 
 func GenerateToken(username string, uniqueKey string) (string, interface{}, error) {
 	// Create the token
-	k := config.LoadEnv("SIGNED_KEY")
+	k := []byte(config.LoadEnv("SIGNED_KEY"))
 	token := jwt.New(jwt.SigningMethodHS256)
 	// Set some claims
 	claims := make(jwt.MapClaims)
