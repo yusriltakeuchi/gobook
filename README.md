@@ -32,7 +32,7 @@ Use this command to install library requred in project
 
 ## How To Add New Model
 1. Create Model in **app/models**
-2. Open file** app/database/migrations.go**
+2. Open file **app/database/migrations.go**
 3. Insert your model here
 ```go
 //Insert your model here

@@ -8,6 +8,7 @@ type User struct {
 	Password  string    `json:"password";gorm:"type:text"`
 	Email     string    `json:"email";gorm:"type:varchar(255)";NOT NULL`
 	UniqueKey string    `json:"unique_key";gorm:"type:varchar(100)"`
+	Profile   Profile   `gorm:"foreignkey:user_id"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }

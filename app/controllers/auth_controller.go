@@ -42,7 +42,7 @@ func Login(c *gin.Context) {
 	}
 
 	//Generate Access token
-	token, exp, err := middlewares.GenerateToken([]byte(middlewares.SigningKey), user.Username, user.UniqueKey)
+	token, exp, err := middlewares.GenerateToken(user.Username, user.UniqueKey)
 	if err != nil {
 		response.InternalError(c)
 		return

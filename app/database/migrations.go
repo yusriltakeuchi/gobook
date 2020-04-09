@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+
 	"github.com/yusriltakeuchi/gobook/app/models"
 )
 
@@ -9,7 +10,8 @@ import (
 func GetModel() [][]interface{} {
 	return [][]interface{}{
 		{&models.Books{}, "Books"},
-		{&models.User{}, "User"}}
+		{&models.User{}, "User"},
+		{&models.Profile{}, "Profile"}}
 }
 
 func Migrate() {
