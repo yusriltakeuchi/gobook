@@ -93,7 +93,7 @@ func AddingLibrary(name string) {
 
 	_code := ReadFile(sourcePath)
 
-	_packagesInsert := fmt.Sprintf("\"}\n		\"%s\"}", name)
+	_packagesInsert := fmt.Sprintf("\",\n		\"%s\"}", name)
 	templateCode := strings.ReplaceAll(_code, "\"}", _packagesInsert)
 
 	status := writeFile(sourcePath, templateCode)

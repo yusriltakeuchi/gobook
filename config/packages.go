@@ -1,8 +1,6 @@
 package config
 
-//Don't touch this code,
-//if you want to add manual, don't forget
-//do add "} in the end statement
+//Don't touch this code
 func GetPackages() []string {
 	return []string{
 		"github.com/gin-gonic/gin",
@@ -11,5 +9,6 @@ func GetPackages() []string {
 		"github.com/jinzhu/gorm",
 		"golang.org/x/crypto/bcrypt",
 		"github.com/dgrijalva/jwt-go",
-		"github.com/joho/godotenv"}
+		"github.com/joho/godotenv",
+		"github.com/google/uuid"}
 }

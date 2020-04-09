@@ -6,14 +6,13 @@ import (
 	"github.com/yusriltakeuchi/gobook/app/models"
 )
 
-//Don't touch this code,
-//if you want to add manual, don't forget
-//do add "}} in the end statement
+//Don't touch this code
 func GetModel() [][]interface{} {
 	return [][]interface{}{
 		{&models.Books{}, "Books"},
 		{&models.User{}, "User"},
-		{&models.Profile{}, "Profile"}}
+		{&models.Profile{}, "Profile"},
+		{&models.Student{}, "Student"}}
 }
 
 func Migrate() {
