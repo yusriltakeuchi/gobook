@@ -11,8 +11,7 @@ func GetModel() [][]interface{} {
 	return [][]interface{}{
 		{&models.Books{}, "Books"},
 		{&models.User{}, "User"},
-		{&models.Profile{}, "Profile"},
-		{&models.Student{}, "Student"}}
+		{&models.Profile{}, "Profile"}}
 }
 
 func Migrate() {
