@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/yusriltakeuchi/gobook/config"
+	"gobook/config"
 
-	"github.com/yusriltakeuchi/gobook/app/database"
-	"github.com/yusriltakeuchi/gobook/app/models"
-	"github.com/yusriltakeuchi/gobook/app/response"
+	"gobook/app/database"
+	"gobook/app/models"
+	"gobook/app/response"
+
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/dgrijalva/jwt-go"

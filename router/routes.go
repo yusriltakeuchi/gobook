@@ -1,9 +1,10 @@
 package router
 
 import (
+	"gobook/app/controllers"
+	"gobook/app/middlewares"
+
 	"github.com/gin-gonic/gin"
-	"github.com/yusriltakeuchi/gobook/app/controllers"
-	"github.com/yusriltakeuchi/gobook/app/middlewares"
 )
 
 func SetupRouter() {

@@ -1,13 +1,14 @@
 package controllers
 
 import (
+	"gobook/app/database"
+	"gobook/app/models"
+	"gobook/app/response"
+	"gobook/config"
+	"gobook/validator"
+
 	"github.com/gin-gonic/gin"
 	"github.com/ulule/deepcopier"
-	"github.com/yusriltakeuchi/gobook/app/database"
-	"github.com/yusriltakeuchi/gobook/app/models"
-	"github.com/yusriltakeuchi/gobook/app/response"
-	"github.com/yusriltakeuchi/gobook/config"
-	"github.com/yusriltakeuchi/gobook/validator"
 )
 
 //Function to create book

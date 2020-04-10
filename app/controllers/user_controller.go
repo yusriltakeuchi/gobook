@@ -1,11 +1,12 @@
 package controllers
 
 import (
+	"gobook/app/database"
+	"gobook/app/middlewares"
+	"gobook/app/models"
+	"gobook/app/response"
+
 	"github.com/gin-gonic/gin"
-	"github.com/yusriltakeuchi/gobook/app/database"
-	"github.com/yusriltakeuchi/gobook/app/middlewares"
-	"github.com/yusriltakeuchi/gobook/app/models"
-	"github.com/yusriltakeuchi/gobook/app/response"
 )
 
 func GetProfile(c *gin.Context) {

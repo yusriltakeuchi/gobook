@@ -3,8 +3,9 @@ package middlewares
 import (
 	"time"
 
+	"gobook/config"
+
 	"github.com/dgrijalva/jwt-go"
-	"github.com/yusriltakeuchi/gobook/config"
 )
 
 func GenerateToken(username string, uniqueKey string) (string, interface{}, error) {

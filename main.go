@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/yusriltakeuchi/gobook/core"
+	"gobook/core"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package core
 import (
 	"fmt"
 
-	"github.com/yusriltakeuchi/gobook/app/database"
+	"gobook/app/database"
 )
 
 func ShowHelp() {

@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/yusriltakeuchi/gobook/app/models"
+	"gobook/app/models"
 )
 
 //Don't touch this code
@@ -23,9 +23,9 @@ func Migrate() {
 		exists := db.HasTable(value[0])
 		if exists == false {
 			db.AutoMigrate(value[0])
-			fmt.Println(fmt.Sprintf(" -> Successfully migrate %s Model", value[1]))
+			fmt.Println(fmt.Sprintf(" [✔] Successfully migrate %s Model", value[1]))
 		} else {
-			fmt.Println(fmt.Sprintf(" -> Migration %s already defined", value[1]))
+			fmt.Println(fmt.Sprintf(" [✔] Migration %s already defined", value[1]))
 		}
 	}
 }

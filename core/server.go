@@ -6,9 +6,9 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/yusriltakeuchi/gobook/app/database"
-	"github.com/yusriltakeuchi/gobook/config"
-	"github.com/yusriltakeuchi/gobook/router"
+	"gobook/app/database"
+	"gobook/config"
+	"gobook/router"
 )
 
 func Start() {
@@ -26,20 +26,21 @@ func InstallLibrary() {
 		err := cmd.Run()
 
 		//If package not installed then install
+		fmt.Println(fmt.Sprintf(" [->] Trying to install %s.", value))
 		if err != nil {
 			cmd = exec.Command("go", "get", value)
 			err = cmd.Run()
 
 			if err != nil {
-				fmt.Println(fmt.Sprintf(" -> Error Installing %s.\n%s", value, err.Error()))
+				fmt.Println(fmt.Sprintf(" [✗] Error Installing %s.\n%s", value, err.Error()))
 				continue
 			}
-			fmt.Println(fmt.Sprintf(" -> Successfully Install %s.", value))
+			fmt.Println(fmt.Sprintf(" [✔] Successfully Install %s.", value))
 		} else {
-			fmt.Println(fmt.Sprintf(" -> Library %s already installed.", value))
+			fmt.Println(fmt.Sprintf(" [✔] Library %s already installed.", value))
 		}
 	}
-	fmt.Println(" -> Required library successfully installed.")
+	fmt.Println(" [✔] Required library successfully installed.")
 }
 
 func GenerateCode(cmd []string) {
@@ -61,13 +62,13 @@ func MakeCode(name string, types string) {
 
 	status := writeFile(destPath, templateCode)
 	if status == true {
-		fmt.Println(fmt.Sprintf(" -> Successfuly create %s %s.", types, name))
+		fmt.Println(fmt.Sprintf(" [✔] Successfuly create %s %s.", types, name))
 	} else {
-		fmt.Println(fmt.Sprintf(" -> Failed to create %s", types))
+		fmt.Println(fmt.Sprintf(" [✗] Failed to create %s", types))
 	}
 
 	if types == "models" {
-		fmt.Println(fmt.Sprintf(" -> Creating Migrations %s.", name))
+		fmt.Println(fmt.Sprintf(" [->] Creating Migrations %s.", name))
 		AddingMigrations(basePath, name)
 	}
 }
@@ -83,7 +84,7 @@ func AddingMigrations(basePath string, name string) {
 
 	status := writeFile(sourcePath, templateCode)
 	if status == false {
-		fmt.Println(fmt.Sprintf(" -> Failed to create migrations %s", name))
+		fmt.Println(fmt.Sprintf(" [✗] Failed to create migrations %s", name))
 	}
 }
 
@@ -98,6 +99,6 @@ func AddingLibrary(name string) {
 
 	status := writeFile(sourcePath, templateCode)
 	if status == false {
-		fmt.Println(fmt.Sprintf(" -> Failed to import library %s", name))
+		fmt.Println(fmt.Sprintf(" [✗] Failed to import library %s", name))
 	}
 }
