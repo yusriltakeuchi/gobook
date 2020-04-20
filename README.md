@@ -22,6 +22,16 @@ Features:
 git clone https://github.com/yusriltakeuchi/gobook.git
 ```
 
+2. Make sure your GOPATH and GOROOT already defined.
+This is an example of my path:
+```go
+export GOROOT=/usr/local/go
+export GOPATH=/Volumes/YURANI/Software\ Development/Golang
+export PATH=$PATH:$GOROOT/bin:$GOPATH
+```
+GOROOT is the place where you install the golang software,
+and GOPATH is the place your golang project stored
+
 2. Install required library
 ```go
 go run main.go install
