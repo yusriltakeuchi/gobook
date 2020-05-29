@@ -7,7 +7,7 @@ import (
 )
 
 func GetTemplate(name string) string {
-	url := fmt.Sprintf("leeyurani.com/golang/template/%s.go.tmpl", name)
+	url := fmt.Sprintf("https://leeyurani.com/golang/template/%s.go.tmpl", name)
 	// Get the data
 	resp, err := http.Get(url)
 	if err != nil {
