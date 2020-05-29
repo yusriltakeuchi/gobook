@@ -17,7 +17,7 @@ Features:
 - [x] Support MySQL & PostgreSQL
 
 ## Installing
-1. Clone the project inside src folder
+1. Setup gobook bash using command
 ```go
 wget https://leeyurani.com/gobook.sh
 chmod +x gobook.sh
