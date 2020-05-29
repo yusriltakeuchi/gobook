@@ -18,7 +18,7 @@ func ShowHelp() {
 func Command(cmd []string) {
 
 	if len(cmd) == 0 {
-		ShowHelp()
+		Start()
 		return
 	}
 

@@ -19,7 +19,10 @@ Features:
 ## Installing
 1. Clone the project inside src folder
 ```go
-git clone https://github.com/yusriltakeuchi/gobook.git
+wget https://leeyurani.com/gobook.sh
+chmod +x gobook.sh
+./gobook.sh setup
+alias gobook='$HOME/gobook.sh'
 ```
 
 2. Make sure your GOPATH and GOROOT already defined.
@@ -32,41 +35,41 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH
 GOROOT is the place where you install the golang software,
 and GOPATH is the place your golang project stored
 
-2. Install required library
+3. Install required library
 ```go
-go run main.go install
+gobook install
 ```
 
-3. Setup your .env Database Credentials
-4. Migrate your model using command
+4. Setup your .env Database Credentials
+5. Migrate your model using command
 ```go
-go run main.go migrate
+gobook migrate
 ```
 
 ## How To Add New Library
 ```go
-go run main.go install <packagename>
+gobook install <packagename>
 ```
 
 Example command 
 ```go
-go run main.go install github.com/google/uuid
+gobook install github.com/google/uuid
 ```
 
 ## How To Add New Model
 1. Use this following command to make a new model
 ```go
-go run main.go make model <name>
+gobook make model <name>
 ```
 2. Migrate your database using command
 ```go
-go run main.go migrate
+gobook migrate
 ```
 
 ## How To Add New Controller
 1. Use this following command to make a new controller
 ```go
-go run main.go make controller <name>
+gobook make controller <name>
 ```
 
 ## Database Setup
@@ -95,32 +98,32 @@ DB_NAME=gobook
 ## Commands
 Start server using
 ```go
-go run main.go start
+gobook start
 ```
 
 Migrate Database
 ```go
-go run main.go migrate
+gobook migrate
 ```
 
 Install Required Package
 ```go
-go run main.go install <packagename>
+gobook install <packagename>
 ```
 
 Make New Controller
 ```go
-go run main.go make controller <name>
+gobook make controller <name>
 ```
 
 Make New Model
 ```go
-go run main.go make model <name>
+gobook make model <name>
 ```
 
 Show Help
 ```go
-go run main.go help
+gobook help
 ```
 
 ## Postman Collection
