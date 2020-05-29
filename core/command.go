@@ -8,11 +8,11 @@ import (
 
 func ShowHelp() {
 	fmt.Println("----=====[ Gobook ]=====----")
-	fmt.Println(" -> go run main.go start - Start server with port 8080")
-	fmt.Println(" -> go run main.go migrate - Migrate database")
-	fmt.Println(" -> go run main.go install <packagename> - Installing required library")
-	fmt.Println(" -> go run main.go make controller <name> - Create new controllers")
-	fmt.Println(" -> go run main.go make model <name> - Create new models")
+	fmt.Println(" -> gobook start - Start server with port 8080")
+	fmt.Println(" -> gobook migrate - Migrate database")
+	fmt.Println(" -> gobook install <packagename> - Installing required library")
+	fmt.Println(" -> gobook make controller <name> - Create new controllers")
+	fmt.Println(" -> gobook make model <name> - Create new models")
 }
 
 func Command(cmd []string) {
